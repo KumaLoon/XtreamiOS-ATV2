@@ -1,4 +1,4 @@
-    #!/bin/bash
+#!/bin/bash
 echo "Type your password"
 if [[ ! $EUID -ne 0 ]]; then
 echo "\n\033[1;31mEnter your root password.\033[m"
@@ -19,7 +19,6 @@ show_Menu () {
 
 echo "1.  Open SSH_rd"
 echo "2.  Automatic install using SSH"
-echo "3.  Uninstall XtreamiOS"
 echo
 echo "Q. Quit"
 
@@ -30,7 +29,7 @@ case "$SELECT" in
 # Install Opensn0w and mkdir for it
 1)
 echo "Opening SSH client"
-open ~/Documents/iOS7tethered/ssh_rd_rev04b.jar
+open ssh_rd_rev04b.jar
 ;;
 
 2)
@@ -105,16 +104,6 @@ send \"halt\r\"
 expect \"sh-4.0#\"
 "
 ;;
-
-3)
-# remove
-echo "Removing XtreamiOS :("
-sudo rm -rf ~/documents/iOS7tethered
-sudo cp ~/documents/BU ~/.ssh/known_hosts
-sudo rm -rf /usr/local/opensn0w
-echo "Done"
-;;
-[Qq]) exit ;;
 
 *)
 show_Menu
